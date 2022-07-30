@@ -1,22 +1,25 @@
 from random import randint, random
-from Quicksortkiwi import quickSort
+import numpy as np
+from Quicksortkiwi import quickSort, data
 from time import time
 
-avaragecase= [randint(1,10000) for _ in range(1000)]
-bestcase= sorted(avaragecase)
-worstcase= sorted(avaragecase, reverse=True) 
-
+# avaragecase= [randint(1,10000) for _ in range(1000)]
+# bestcase= sorted(avaragecase)
+# worstcase= sorted(avaragecase, reverse=True) 
+avaragecase = data
+bestcase = np.sort(avaragecase)
+worstcase = bestcase[::-1]
 def test_QuickWorst():
-    start= time
-    assert quickSort(worstcase) == bestcase
-    print(time()-start)
+    start= time()
+    assert np.array_equal( quickSort( np.copy(worstcase), 0, len(worstcase)-1) , bestcase)
+    print(str(time()-start))
 
 def test_QuickBest():
-    start= time
-    assert quickSort(bestcase) == bestcase
-    print(time()-start)    
+    start= time()
+    assert np.array_equal( quickSort( np.copy(bestcase), 0, len(bestcase)-1) , bestcase)
+    print(str(time()-start))
     
 def test_QuickAvg():
-    start= time
-    assert quickSort(avaragecase) == bestcase
-    print(time()-start)
+    start= time()
+    assert np.array_equal( quickSort( np.copy(avaragecase), 0, len(avaragecase)-1) , bestcase)
+    print(str(time()-start))
