@@ -17,6 +17,24 @@ from random import randint
 #bubble(wght)
 #print(wght)
 
+# from random import randint, random
+
+# while True:
+#         sortby = input("Which sorting algorithm do you want to use?\n1 - Bubble\n2 - Selection\n3 - Insertion\n")
+        
+#         if sortby == "1":
+#             Bubble(arr)
+#             break
+#         elif sortby == "2":
+#             Selection(arr)
+#             break
+#         elif sortby == "3":
+#             Insertion(arr)
+#             break
+#         else: 
+#             print("Incorrect input!")
+
+
 def bubbleSort(arr):
     n = len(arr)
     for i in range(n):
